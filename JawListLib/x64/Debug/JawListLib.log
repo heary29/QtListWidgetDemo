@@ -1,12 +1,3 @@
 ﻿  Reading Qt configuration (D:/Qt/Qt5.14.2/5.14.2/msvc2017_64/bin/qmake)
-  uic JawListWidget.ui
-  rcc JawListWidget.qrc
-  moc JawListWidget.h
-  moc JawListLib.h
   JawListWidget.cpp
-  JawListLib.cpp
-  qrc_JawListWidget.cpp
-  moc_JawListWidget.cpp
-  moc_JawListLib.cpp
-    正在创建库 C:\Users\yangchunhai-ls\source\repos\JawListLib\x64\Debug\JawListLib.lib 和对象 C:\Users\yangchunhai-ls\source\repos\JawListLib\x64\Debug\JawListLib.exp
   JawListLib.vcxproj -> C:\Users\yangchunhai-ls\source\repos\JawListLib\x64\Debug\JawListLib.dll

@@ -13,7 +13,9 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -24,6 +26,10 @@ class Ui_JawListWidget
 {
 public:
     QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout_2;
+    QLineEdit *lineEdit;
+    QPushButton *path_Btn;
+    QSpacerItem *horizontalSpacer_2;
     QListWidget *listWidget;
     QHBoxLayout *horizontalLayout;
     QSpacerItem *horizontalSpacer;
@@ -41,11 +47,34 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(JawListWidget->sizePolicy().hasHeightForWidth());
         JawListWidget->setSizePolicy(sizePolicy);
+        JawListWidget->setMinimumSize(QSize(695, 450));
+        JawListWidget->setMaximumSize(QSize(695, 450));
         verticalLayout = new QVBoxLayout(JawListWidget);
         verticalLayout->setSpacing(6);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
         verticalLayout->setContentsMargins(6, 0, 6, 0);
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        horizontalLayout_2->setContentsMargins(-1, 0, -1, -1);
+        lineEdit = new QLineEdit(JawListWidget);
+        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        lineEdit->setReadOnly(false);
+
+        horizontalLayout_2->addWidget(lineEdit);
+
+        path_Btn = new QPushButton(JawListWidget);
+        path_Btn->setObjectName(QString::fromUtf8("path_Btn"));
+
+        horizontalLayout_2->addWidget(path_Btn);
+
+        horizontalSpacer_2 = new QSpacerItem(10, 0, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_2);
+
+
+        verticalLayout->addLayout(horizontalLayout_2);
+
         listWidget = new QListWidget(JawListWidget);
         listWidget->setObjectName(QString::fromUtf8("listWidget"));
         QSizePolicy sizePolicy1(QSizePolicy::Expanding, QSizePolicy::Expanding);
@@ -90,6 +119,7 @@ public:
     void retranslateUi(QWidget *JawListWidget)
     {
         JawListWidget->setWindowTitle(QCoreApplication::translate("JawListWidget", "JawListWidget", nullptr));
+        path_Btn->setText(QCoreApplication::translate("JawListWidget", "\351\200\211\346\213\251", nullptr));
 #if QT_CONFIG(statustip)
         listWidget->setStatusTip(QString());
 #endif // QT_CONFIG(statustip)

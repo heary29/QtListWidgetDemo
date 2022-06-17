@@ -1,6 +1,5 @@
 #include "JawListLib.h"
 #include "JawListWidget.h"
-#include <QSignalMapper>
 
 JawListLib::JawListLib(QWidget* parent)
 	: QWidget(parent)

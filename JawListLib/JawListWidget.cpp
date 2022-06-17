@@ -4,16 +4,17 @@
 #include <QDebug>
 #include <QAction>
 #include <QMessageBox>
+#include <QFileDialog>
 
 
 JawListWidget::JawListWidget(QWidget *parent)
     : QWidget(parent)
 {
 	ui.setupUi(this);
-    this->setWindowFlags(Qt::WindowCloseButtonHint);
+	this->setWindowFlags(Qt::WindowCloseButtonHint | Qt::WindowMinimizeButtonHint);
 	initControler();
 	initMenu();
-	initList("../JawListLib");
+	//initList("../JawListLib");
 	//connect(this, SIGNAL(openItem(QString)), this, SLOT(updateItem(QString)));
 }
 
@@ -41,6 +42,9 @@ void JawListWidget::initControler()
 
 	connect(ui.listWidget, &QListWidget::itemDoubleClicked, this, &JawListWidget::jawDoubleClicked);
 	connect(ui.listWidget, &QListWidget::itemClicked, this, &JawListWidget::jawItemClicked);
+
+	connect(ui.path_Btn, &QPushButton::clicked, this, &JawListWidget::pathBtnClicked);
+	connect(ui.lineEdit, &QLineEdit::returnPressed,this, &JawListWidget::pathPressed);
 }
 
 void JawListWidget::initMenu()
@@ -65,6 +69,11 @@ void JawListWidget::initMenu()
 
 bool JawListWidget::initList(QString strpath)
 {
+	if (ui.listWidget)
+	{
+		ui.listWidget->clear();
+	}
+
 	QDir rootDir(strpath);
 	QString name = "*.h";
 	QStringList filters;
@@ -95,6 +104,26 @@ bool JawListWidget::initList(QString strpath)
 	}
 	ui.label_jawcount->setText(QString::number(ui.listWidget->count()));
 	return true;
+}
+
+void JawListWidget::showCurrentDirFiles()
+{
+	QString strpath = ui.lineEdit->text();
+	if (dirExist(strpath))
+	{
+		initList(strpath);
+	}
+	qDebug() << "this path no exist:" << strpath;
+}
+
+bool JawListWidget::dirExist(QString fullPath)
+{
+	QDir dir(fullPath);
+	if (dir.exists())
+	{
+		return true;
+	}
+	return false;
 }
 
 void JawListWidget::addItem(Info& info)
@@ -162,9 +191,9 @@ void JawListWidget::jawDoubleClicked(QListWidgetItem* item)
 	//QListWidgetItem* itemdele = new QListWidgetItem(QIcon(":/item_uncheck.png"), "12324");
 	//ui.listWidget->insertItem(iindex+3, itemdele);
 
-	int iindex = ui.listWidget->currentRow();
+	/*int iindex = ui.listWidget->currentRow();
 	QListWidgetItem* itemdele = ui.listWidget->item(iindex);
-	itemdele->setIcon(QIcon(":/item_check.png"));
+	itemdele->setIcon(QIcon(":/item_check.png"));*/
 
 
 	/*int iindex = ui.listWidget->currentRow();
@@ -176,6 +205,26 @@ void JawListWidget::jawItemClicked(QListWidgetItem* item)
 {
 	qDebug() << "jawItemClicked" << item->text();
 
+}
+
+void JawListWidget::pathPressed()
+{
+	QString oldfilePath = ui.lineEdit->text();
+	if (!oldfilePath.isEmpty())
+	{
+		showCurrentDirFiles();
+	}
+	qDebug() << "pathPressed path is empty";
+}
+
+void JawListWidget::pathBtnClicked()
+{
+	QString filePath = QFileDialog::getExistingDirectory(this, "请选择文件路径...", "./");
+	if (!filePath.isEmpty())
+	{
+		ui.lineEdit->setText(filePath);
+		showCurrentDirFiles();
+	}
 }
 
 void JawListWidget::updateItem(const QVariant varValue)

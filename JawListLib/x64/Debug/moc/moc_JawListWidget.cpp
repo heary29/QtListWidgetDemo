@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_JawListWidget_t {
-    QByteArrayData data[12];
-    char stringdata0[162];
+    QByteArrayData data[14];
+    char stringdata0[189];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -42,13 +42,16 @@ QT_MOC_LITERAL(6, 48, 16), // "jawDoubleClicked"
 QT_MOC_LITERAL(7, 65, 16), // "QListWidgetItem*"
 QT_MOC_LITERAL(8, 82, 4), // "item"
 QT_MOC_LITERAL(9, 87, 14), // "jawItemClicked"
-QT_MOC_LITERAL(10, 102, 28), // "on_action_openMenu_triggered"
-QT_MOC_LITERAL(11, 131, 30) // "on_action_DeleteMenu_triggered"
+QT_MOC_LITERAL(10, 102, 14), // "pathBtnClicked"
+QT_MOC_LITERAL(11, 117, 11), // "pathPressed"
+QT_MOC_LITERAL(12, 129, 28), // "on_action_openMenu_triggered"
+QT_MOC_LITERAL(13, 158, 30) // "on_action_DeleteMenu_triggered"
 
     },
     "JawListWidget\0openItem\0\0varValue\0str\0"
     "updateItem\0jawDoubleClicked\0"
     "QListWidgetItem*\0item\0jawItemClicked\0"
+    "pathBtnClicked\0pathPressed\0"
     "on_action_openMenu_triggered\0"
     "on_action_DeleteMenu_triggered"
 };
@@ -60,7 +63,7 @@ static const uint qt_meta_data_JawListWidget[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   14, // methods
+      10,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -68,16 +71,18 @@ static const uint qt_meta_data_JawListWidget[] = {
        2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   54,    2, 0x06 /* Public */,
-       1,    1,   57,    2, 0x06 /* Public */,
+       1,    1,   64,    2, 0x06 /* Public */,
+       1,    1,   67,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       5,    1,   60,    2, 0x0a /* Public */,
-       5,    1,   63,    2, 0x0a /* Public */,
-       6,    1,   66,    2, 0x0a /* Public */,
-       9,    1,   69,    2, 0x0a /* Public */,
-      10,    0,   72,    2, 0x0a /* Public */,
-      11,    0,   73,    2, 0x0a /* Public */,
+       5,    1,   70,    2, 0x0a /* Public */,
+       5,    1,   73,    2, 0x0a /* Public */,
+       6,    1,   76,    2, 0x0a /* Public */,
+       9,    1,   79,    2, 0x0a /* Public */,
+      10,    0,   82,    2, 0x0a /* Public */,
+      11,    0,   83,    2, 0x0a /* Public */,
+      12,    0,   84,    2, 0x0a /* Public */,
+      13,    0,   85,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QVariant,    3,
@@ -88,6 +93,8 @@ static const uint qt_meta_data_JawListWidget[] = {
     QMetaType::Void, QMetaType::QString,    4,
     QMetaType::Void, 0x80000000 | 7,    8,
     QMetaType::Void, 0x80000000 | 7,    8,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -106,8 +113,10 @@ void JawListWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 3: _t->updateItem((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 4: _t->jawDoubleClicked((*reinterpret_cast< QListWidgetItem*(*)>(_a[1]))); break;
         case 5: _t->jawItemClicked((*reinterpret_cast< QListWidgetItem*(*)>(_a[1]))); break;
-        case 6: _t->on_action_openMenu_triggered(); break;
-        case 7: _t->on_action_DeleteMenu_triggered(); break;
+        case 6: _t->pathBtnClicked(); break;
+        case 7: _t->pathPressed(); break;
+        case 8: _t->on_action_openMenu_triggered(); break;
+        case 9: _t->on_action_DeleteMenu_triggered(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -158,13 +167,13 @@ int JawListWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 10;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 8)
+        if (_id < 10)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 8;
+        _id -= 10;
     }
     return _id;
 }

@@ -1,10 +1,3 @@
 ﻿  Reading Qt configuration (D:/Qt/Qt5.14.2/5.14.2/msvc2017_64/bin/qmake)
-  uic QtListWidgetDemo.ui
-  rcc QtListWidgetDemo.qrc
-  moc QtListWidgetDemo.h
-   RCC: Warning: No resources in 'C:\Users\yangchunhai-ls\source\repos\QtListWidgetDemo\QtListWidgetDemo.qrc'.
-  QtListWidgetDemo.cpp
   main.cpp
-  qrc_QtListWidgetDemo.cpp
-  moc_QtListWidgetDemo.cpp
   QtListWidgetDemo.vcxproj -> C:\Users\yangchunhai-ls\source\repos\JawListLib\x64\Debug\QtListWidgetDemo.exe

@@ -36,6 +36,8 @@ public slots:
     void updateItem(QString str);
 	void jawDoubleClicked(QListWidgetItem* item);
 	void jawItemClicked(QListWidgetItem* item);
+    void pathBtnClicked();
+    void pathPressed();
 	void on_action_openMenu_triggered();
 	void on_action_DeleteMenu_triggered();
 
@@ -51,6 +53,8 @@ private:
     void addItem(Info& info);
     void removeItem();
     bool isHasSelect();
+    bool dirExist(QString fullPath);
+    void showCurrentDirFiles();
 
     Ui::JawListWidget ui;
 };

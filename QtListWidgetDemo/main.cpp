@@ -8,6 +8,7 @@ int main(int argc, char *argv[])
 	/*QtListWidgetDemo w;
 	w.show();*/
 	JawListLib  w;
+	w.setWindowFlags(Qt::WindowCloseButtonHint);
 	w.showList();
     return a.exec();
 }
